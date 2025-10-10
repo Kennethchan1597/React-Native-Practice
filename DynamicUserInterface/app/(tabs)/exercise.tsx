@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, Platform, StyleSheet, Text, View } from "react-native";
+import CustomButton from "../../components/CustomButton";
 
 export default function Exercise() {
 
@@ -16,10 +17,21 @@ export default function Exercise() {
     return () => subscription?.remove();
   });
 
-  return (
-    <View style={styles.container}>
+  const returnedValue = Platform.select({
+    ios: { color: "green", fontSize: 20 },
+    android: { color: "purple", fontSize: 30 }
+  });
+
+  const style = {
+    fontWeight: "bold",
+    returnedValue
+  }
+
+return (
+    <View style={[styles.container, { paddingTop: Platform.OS === "android" ? 25 : 0 }]}>
       <View style={[styles.box, { height: dimensions.window.width > 500 ? "70%" : "50%", width: dimensions.window.width > 500 ? "15%" : "80%", }]}>
         <Text style={[styles.text, { fontSize: dimensions.window.width > 500 ? 50 : 24, color: dimensions.window.width > 500 ? "darkgrey" : "black" }]}>Welcome!</Text>
+        <CustomButton callThisFunction={() => alert("Pressed")} buttonName={"Name"} />
       </View>
     </View>
   );
@@ -28,5 +40,11 @@ export default function Exercise() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "plum", alignItems: "center", justifyContent: "center" },
   box: { backgroundColor: "lightblue", alignItems: "center", justifyContent: "center" },
-  text: { fontWeight: "bold" }
-})
+  text: {
+    fontWeight: "bold",
+    ...Platform.select({
+      ios: { color: "green", fontStyle: "italic", fontSize: 20 },
+      android: { color: "purple", fontSize: 30 }
+    }),
+  }
+});
