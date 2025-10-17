@@ -1,0 +1,16 @@
+[
+  {
+    "title": "Grass",
+    "data": ["Bulbasaur", "Ivysaur", "Venusaur"]
+  },
+  {
+    "title": "Fire",
+    "data": ["Charmander", "Charmeleon", "Charizard"]
+  },
+  {
+    "title": "Water",
+    "data": ["Squirtle", "Wartortle", "Blastoise"]
+  },
+  { "title": "Electric", 
+  "data": ["Pikachu", "Raichu"] }
+]
