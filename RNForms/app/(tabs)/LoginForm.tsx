@@ -23,7 +23,6 @@ export default function LoginForm() {
         setPassword(password),
         setError({})
     }
-
   }
 
   return (
