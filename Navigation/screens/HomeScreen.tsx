@@ -1,20 +1,25 @@
-import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
-
-const Navigation = () => {
-  
-}
+import { Button, StatusBar, StyleSheet, Text, View } from 'react-native';
 
 export default function HomeScreen() {
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="default" />
       <Text style={styles.text}>Home</Text>
-      <Button title="About" onPress={Navigation} />
+      <Button title="About" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, alignItems: "center", justifyContent: "center" },
-  text: { fontSize: 22 }
-})
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: 22,
+    fontWeight: "bold"
+  }
+});
